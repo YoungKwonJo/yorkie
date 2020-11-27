@@ -218,6 +218,8 @@ func (a *RGATreeList) Delete(idx int, deletedAt *time.Ticket) *RGATreeListNode {
 	return a.DeleteByCreatedAt(target.elem.CreatedAt(), deletedAt)
 }
 
+// MoveAfter moves the given `createdAt` element after the `prevCreatedAt`
+// element.
 func (a *RGATreeList) MoveAfter(prevCreatedAt, createdAt, executedAt *time.Ticket) {
 	prevNode, ok := a.nodeMapByCreatedAt[prevCreatedAt.Key()]
 	if !ok {
@@ -242,6 +244,8 @@ func (a *RGATreeList) MoveAfter(prevCreatedAt, createdAt, executedAt *time.Ticke
 	}
 }
 
+// FindPrevCreatedAt returns the creation time of the previous element of the
+// given element.
 func (a *RGATreeList) FindPrevCreatedAt(createdAt *time.Ticket) *time.Ticket {
 	node, ok := a.nodeMapByCreatedAt[createdAt.Key()]
 	if !ok {

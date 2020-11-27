@@ -34,17 +34,15 @@ import (
 
 var testStartedAt int64
 
+// Below are the values of the Yorkie config used in the test.
 const (
-	RPCPort     = 1101
-	MetricsPort = 1102
-
+	RPCPort                   = 1101
+	MetricsPort               = 1102
 	MongoConnectionURI        = "mongodb://localhost:27017"
 	MongoConnectionTimeoutSec = 5
 	MongoPingTimeoutSec       = 5
-
-	SnapshotThreshold = 10
-
-	Collection = "test-collection"
+	SnapshotThreshold         = 10
+	Collection                = "test-collection"
 )
 
 func init() {

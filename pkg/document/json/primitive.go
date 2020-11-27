@@ -25,6 +25,7 @@ import (
 	"github.com/yorkie-team/yorkie/pkg/document/time"
 )
 
+// ValueType represents the type of Primitive value.
 type ValueType int
 
 const (
@@ -90,12 +91,11 @@ func NewPrimitive(value interface{}, createdAt *time.Ticket) *Primitive {
 				value:     int64(val),
 				createdAt: createdAt,
 			}
-		} else {
-			return &Primitive{
-				valueType: Integer,
-				value:     val,
-				createdAt: createdAt,
-			}
+		}
+		return &Primitive{
+			valueType: Integer,
+			value:     val,
+			createdAt: createdAt,
 		}
 	case int64:
 		return &Primitive{
